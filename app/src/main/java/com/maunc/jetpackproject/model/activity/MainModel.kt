@@ -1,4 +1,4 @@
-package com.maunc.jetpackproject.model
+package com.maunc.jetpackproject.model.activity
 
 import com.maunc.jetpackmvvm.base.BaseModel
 import com.maunc.jetpackproject.utils.DataStorePreferences
