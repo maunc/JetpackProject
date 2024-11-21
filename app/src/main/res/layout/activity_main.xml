@@ -25,7 +25,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/navigation" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#6DB3B3B3"
+            app:layout_constraintBottom_toTopOf="@id/main_tab_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/main_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:orientation="horizontal"

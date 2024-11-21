@@ -1,7 +1,6 @@
 package com.maunc.jetpackproject.ui.activity
 
 import android.os.Bundle
-import android.view.View.OnClickListener
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -17,7 +16,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     private lateinit var navController: NavController
     private val mainContainerId = R.id.nav_host_fragment_container
     private var currentDestinationId = R.id.fragment_home
-    private val arrayFragmentId by lazy {
+    private val arrayFragmentIds by lazy {
         IntArray(3).apply {
             this[0] = R.id.fragment_home
             this[1] = R.id.fragment_message
@@ -45,19 +44,6 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
                     mDatabind.homeButton.isSelected = false
                     mDatabind.messageButton.isSelected = false
                     mDatabind.mineButton.isSelected = true
-                }
-            }
-        }
-    }
-
-    private val buttonClickListener by lazy {
-        OnClickListener { view ->
-            arrayFragmentId.forEach { index ->
-                val fragmentId = arrayFragmentId[index]
-                fragmentId.takeIf {
-                    it == currentDestinationId
-                }?.let {
-
                 }
             }
         }
