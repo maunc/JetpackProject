@@ -1,7 +1,8 @@
 package com.maunc.jetpackproject.viewmodel
 
-import com.maunc.jetpackmvvm.base.BaseModel
 import com.maunc.jetpackmvvm.base.BaseViewModel
+import com.maunc.jetpackproject.model.MainModel
 
-class MainViewModel : BaseViewModel<BaseModel>() {
+class MainViewModel : BaseViewModel<MainModel>() {
+
 }

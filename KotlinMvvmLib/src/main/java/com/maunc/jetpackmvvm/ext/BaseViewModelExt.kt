@@ -86,13 +86,14 @@ fun <T> BaseViewModel<*>.requestNoCheck(
  */
 suspend fun <T> executeResponse(
     response: BaseResponse<T>,
-    success: suspend CoroutineScope.(T) -> Unit
+    success: suspend CoroutineScope.(T) -> Unit,
 ) {
     coroutineScope {
         when {
             response.isSuccess() -> {
                 success(response.getResponseData())
             }
+
             else -> {
                 throw AppException(
                     response.getResponseCode(),
@@ -112,8 +113,8 @@ suspend fun <T> executeResponse(
  */
 fun <T> BaseViewModel<*>.launch(
     block: () -> T,
-    success: (T) -> Unit,
-    error: (Throwable) -> Unit = {}
+    success: (T) -> Unit = {},
+    error: (Throwable) -> Unit = {},
 ) {
     viewModelScope.launch {
         kotlin.runCatching {
@@ -125,5 +126,13 @@ fun <T> BaseViewModel<*>.launch(
         }.onFailure {
             error(it)
         }
+    }
+}
+
+fun BaseViewModel<*>.launch(
+    block: suspend () -> Unit,
+) {
+    viewModelScope.launch(Dispatchers.IO) {
+        block()
     }
 }
